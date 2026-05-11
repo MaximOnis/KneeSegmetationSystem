@@ -1,0 +1,12 @@
+huggingface_hub==1.8.0
+matplotlib==3.8.2
+numpy==2.4.4
+pandas==3.0.3
+Pillow==10.1.0
+Pillow==12.2.0
+pydicom==3.0.2
+PyQt6==6.11.0
+pyqt6_sip==13.11.1
+simpleitk==2.5.4
+torch==2.5.1+cu121
+torchvision==0.20.1+cu121
