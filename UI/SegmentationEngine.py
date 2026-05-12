@@ -85,6 +85,24 @@ class InferenceEngine:
 
         return image
 
+    def predict_slice(self, image):
+
+        input_tensor = self.normalize_image(image)
+
+        with torch.no_grad():
+            output = self.model(input_tensor)
+
+            prediction = torch.argmax(output, dim=1)
+
+        prediction = (
+            prediction
+            .squeeze()
+            .cpu()
+            .numpy()
+        )
+
+        return prediction
+
     def normalize_image(self, image):
         image_transform = transforms.Compose([
             transforms.ToPILImage(),
@@ -112,10 +130,6 @@ class InferenceEngine:
             input_path,
             output_dir
     ):
-
-        import os
-        import numpy as np
-        from PIL import Image
 
         filename = os.path.splitext(os.path.basename(input_path))[0]
 
