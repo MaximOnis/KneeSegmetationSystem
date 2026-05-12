@@ -241,20 +241,8 @@ class SegmentationApp(QWidget):
                 return
 
             image = self.volume[idx]
-            input_tensor = self.engine.normalize_image(image)
 
-            # PREDICT
-            with torch.no_grad():
-
-                output = self.engine.model(input_tensor)
-                prediction = torch.argmax(output, dim=1)
-
-            prediction = (
-                prediction
-                .squeeze()
-                .cpu()
-                .numpy()
-            )
+            prediction = self.engine.predict_slice(image)
 
             predictions.append(prediction)
 
