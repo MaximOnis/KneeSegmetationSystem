@@ -59,7 +59,7 @@
 
 ### Програмне забезпечення
 
-- Python 3.12+
+- Python 3.11+
 - CUDA Toolkit (опціонально)
 - pip
 
@@ -74,3 +74,5 @@
 - matplotlib
 - pydicom
 - PyQt6
+Для встановлення цих бібліотекможна використати на тсупну команду:
+pip install -r requirements.txt
