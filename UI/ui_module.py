@@ -1,11 +1,6 @@
 import sys
-import os
 import numpy as np
-import torch
-import torchvision.transforms as transforms
-import pydicom
 from PIL import Image
-from UI.SegmentationEngine import InferenceEngine, read_mhd
 
 from PyQt6.QtWidgets import (
     QApplication,
@@ -29,8 +24,7 @@ from matplotlib.figure import Figure
 from matplotlib.patches import Patch
 from matplotlib.colors import ListedColormap
 
-from ml_module.model_batch_drop import UNet
-from UI.SegmentationEngine import InferenceEngine, read_mhd
+from UI.SegmentationEngine import InferenceEngine
 
 
 # MAIN WINDOW
@@ -170,7 +164,7 @@ class SegmentationApp(QWidget):
 
         # LOAD MHD
         if file_path.endswith(".mhd"):
-            self.volume = read_mhd(file_path)
+            self.volume = self.engine.read_mhd(file_path)
             self.info_box.clear()
 
         # LOAD DICOM
