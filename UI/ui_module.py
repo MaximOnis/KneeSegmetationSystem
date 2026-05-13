@@ -121,6 +121,14 @@ class SegmentationApp(QWidget):
 
         # RIGHT PANEL (DICOM INFO)
         self.info_box = QTextEdit()
+        self.info_box.setStyleSheet("""
+            QTextEdit {
+                background-color: white;
+                border: 2px solid #D6DBDF;
+                border-radius: 12px;
+                padding: 8px;
+            }
+        """)
         self.info_box.setReadOnly(True)
 
         right_layout = QVBoxLayout()
@@ -386,23 +394,53 @@ class SegmentationApp(QWidget):
 
         d = self.engine.current_dicom
 
-        info = []
+        fields = {
+            "PatientName": "👤 Patient Name",
+            "PatientID": "🆔 Patient ID",
+            "PatientAge": "🎂 Age",
+            "PatientSex": "⚧ Sex",
+            "Modality": "🩻 Modality",
+            "StudyDate": "📅 Study Date",
+            "BodyPartExamined": "🦴 Body Part"
+        }
 
-        tags = [
-            "PatientName",
-            "PatientID",
-            "PatientAge",
-            "PatientSex",
-            "Modality",
-            "StudyDate",
-            "BodyPartExamined"
-        ]
+        html = """
+        <div style="
+            font-family: Segoe UI;
+            font-size: 14px;
+            padding: 10px;
+            line-height: 1.8;
+        ">
+            <h2 style="
+                color: #2E86C1;
+                margin-bottom: 15px;
+            ">
+                Patient Information
+            </h2>
+        """
 
-        for t in tags:
-            if hasattr(d, t):
-                info.append(f"{t}: {getattr(d, t)}")
+        for tag, label in fields.items():
 
-        self.info_box.setText("\n".join(info))
+            if hasattr(d, tag):
+                value = getattr(d, tag)
+
+                html += f"""
+                <div style="
+                    background-color: #F4F6F7;
+                    border-radius: 8px;
+                    padding: 8px;
+                    margin-bottom: 8px;
+                ">
+                    <b style="color:#1B4F72;">{label}:</b>
+                    <span style="color:#212F3D;">
+                        {value}
+                    </span>
+                </div>
+                """
+
+        html += "</div>"
+
+        self.info_box.setHtml(html)
 
 
 def run_app():
