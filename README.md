@@ -74,5 +74,8 @@
 - matplotlib
 - pydicom
 - PyQt6
-Для встановлення цих бібліотекможна використати на тсупну команду:
+## Встановлення залежностей
+
+```bash
 pip install -r requirements.txt
+```
