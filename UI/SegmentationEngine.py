@@ -7,51 +7,7 @@ import torch
 import torchvision.transforms as transforms
 import pydicom
 from PIL import Image
-
-
-def read_mhd(mhd_path):
-    meta = {}
-
-    with open(mhd_path, "r") as f:
-
-        for line in f:
-            line = line.strip()
-
-            if "=" in line:
-                key, value = line.split("=", 1)
-                meta[key.strip()] = value.strip()
-
-    dims = list(map(int, meta["DimSize"].split()))
-
-    element_type = meta["ElementType"]
-
-    type_map = {
-        "MET_CHAR": np.int8,
-        "MET_UCHAR": np.uint8,
-        "MET_SHORT": np.int16,
-        "MET_USHORT": np.uint16,
-        "MET_INT": np.int32,
-        "MET_UINT": np.uint32,
-        "MET_FLOAT": np.float32,
-        "MET_DOUBLE": np.float64,
-    }
-
-    dtype = type_map[element_type]
-
-    raw_file = meta["ElementDataFile"]
-
-    raw_path = os.path.join(
-        os.path.dirname(mhd_path),
-        raw_file
-    )
-
-    data = np.fromfile(raw_path, dtype=dtype)
-
-    data = data.reshape(
-        (dims[2], dims[1], dims[0])
-    )
-
-    return data
+from data_module.DataLoader import read_mhd
 
 
 class InferenceEngine:
@@ -84,6 +40,10 @@ class InferenceEngine:
         self.current_dicom = dicom
 
         return image
+
+    def read_mhd(self, mhd_path):
+        data, _ = read_mhd(mhd_path)
+        return data
 
     def predict_slice(self, image):
 
