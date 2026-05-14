@@ -35,7 +35,7 @@ class SegmentationApp(QWidget):
         super().__init__()
         self.engine = InferenceEngine()
 
-        self.setWindowTitle("Medical Image Segmentation")
+        self.setWindowTitle("Сегментація медичних знімків")
         self.resize(1400, 800)
 
         self.volume = None
@@ -43,9 +43,9 @@ class SegmentationApp(QWidget):
         self.current_file_path = None
 
         # LEFT PANEL (CONTROLS)
-        self.load_button = QPushButton("Load File")
-        self.segment_button = QPushButton("Segment")
-        self.convert_button = QPushButton("Convert to PNG")
+        self.load_button = QPushButton("Завантажити файл")
+        self.segment_button = QPushButton("Сегментувати")
+        self.convert_button = QPushButton("Конвертація в PNG")
 
         self.load_button.setMinimumHeight(50)
         self.segment_button.setMinimumHeight(50)
@@ -70,7 +70,7 @@ class SegmentationApp(QWidget):
         self.segment_button.clicked.connect(self.segment_volume)
         self.convert_button.clicked.connect(self.convert_current_file)
 
-        self.path_label = QLabel("No file selected")
+        self.path_label = QLabel("Файл не обрано")
 
         left_layout = QVBoxLayout()
         left_layout.addWidget(self.load_button)
@@ -85,7 +85,7 @@ class SegmentationApp(QWidget):
         self.figure = Figure(figsize=(6, 6))
         self.canvas = FigureCanvas(self.figure)
 
-        self.slice_label = QLabel("Slice: 0")
+        self.slice_label = QLabel("Зріз: 0")
 
         self.slice_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
@@ -126,7 +126,7 @@ class SegmentationApp(QWidget):
         self.info_box.setReadOnly(True)
 
         right_layout = QVBoxLayout()
-        right_layout.addWidget(QLabel("Patient Info"))
+        right_layout.addWidget(QLabel("Додаткова Інформація"))
         right_layout.addWidget(self.info_box)
 
         right_widget = QWidget()
@@ -187,7 +187,7 @@ class SegmentationApp(QWidget):
         else:
             QMessageBox.warning(
                 self,
-                "Error",
+                "Помилка",
                 "Unsupported file format"
             )
             self.info_box.clear()
@@ -214,7 +214,7 @@ class SegmentationApp(QWidget):
             QMessageBox.warning(
                 self,
                 "Error",
-                "Load file first"
+                "Завантажте спочатку файл"
             )
 
             return
@@ -224,8 +224,8 @@ class SegmentationApp(QWidget):
 
         # PROGRESS DIALOG
         progress = QProgressDialog(
-            "Segmenting...",
-            "Cancel",
+            "Сегментація...",
+            "Скасувати",
             0,
             total_slices,
             self
@@ -257,7 +257,7 @@ class SegmentationApp(QWidget):
         QMessageBox.information(
             self,
             "Done",
-            "Segmentation completed"
+            "Сегментація завершена."
         )
 
         self.update_slice()
@@ -389,8 +389,6 @@ class SegmentationApp(QWidget):
         d = self.engine.current_dicom
 
         fields = {
-            "PatientName": "👤 Patient Name",
-            "PatientID": "🆔 Patient ID",
             "PatientAge": "🎂 Age",
             "PatientSex": "⚧ Sex",
             "Modality": "🩻 Modality",
@@ -409,7 +407,7 @@ class SegmentationApp(QWidget):
                 color: #2E86C1;
                 margin-bottom: 15px;
             ">
-                Patient Information
+                Інформація про пацієнта
             </h2>
         """
 
