@@ -80,3 +80,6 @@
 ```bash
 pip install -r requirements.txt
 ```
+
+<img width=48% height=48% alt="image" src="https://github.com/user-attachments/assets/7c9bd88e-6e4e-4be8-b88d-01ed19230288" />
+ <img width=48% height=48% alt="image" src="https://github.com/user-attachments/assets/cf553e1c-89d1-43bc-a2ed-75098c5fd2a7" />
