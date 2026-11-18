@@ -81,5 +81,5 @@ Evaluation metrics:
 pip install -r requirements.txt
 ```
 
-<img width="847" height="883" alt="image" src="https://github.com/user-attachments/assets/ef3aa55a-cf84-4347-8d98-89736d9405df" /> <img width="973" height="870" alt="image" src="https://github.com/user-attachments/assets/05532492-72a5-4d82-b13c-32d4eb34a15b" />
+<img width=50% height=50% alt="image" src="https://github.com/user-attachments/assets/ef3aa55a-cf84-4347-8d98-89736d9405df" /> <img width=50% height=50% alt="image" src="https://github.com/user-attachments/assets/05532492-72a5-4d82-b13c-32d4eb34a15b" />
 
