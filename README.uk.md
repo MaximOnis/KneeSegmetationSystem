@@ -1,56 +1,56 @@
 **English** | [Українська](README.uk.md)
-# MRI Image Analysis System for Segmenting Knee Joint Structures
-## 📖 Description
+# Система аналізу МРТ-знімків для виділення структур колінного суглобу
+## 📖 Опис
 
-This project is a software system for the automatic segmentation of anatomical structures of the knee joint in MRI images using deep learning methods.
+Даний проєкт являє собою програмну систему для автоматичної сегментації анатомічних структур колінного суглоба на МРТ-знімках із використанням методів глибокого навчання.
 
-The system allows you to:
+Система дозволяє:
 
-- import medical files in MHD/RAW and DICOM formats;
-- perform automatic segmentation of MRI images;
-- view segmentation results in a graphical interface;
-- display the patient’s DICOM metadata;
-- save segmented slices in PNG format.
-
----
-
-## 🚀 Key Features
-
-✅ Medical image segmentation using U-Net
-✅ Support for MHD/RAW and DICOM
-✅ Visualization of segmentation masks
-✅ Saving results as PNG
-✅ Graphical interface built with PyQt6
-✅ GPU support via CUDA
+- завантажувати медичні файли форматів MHD/RAW та DICOM;
+- виконувати автоматичну сегментацію МРТ-знімків;
+- переглядати результати сегментації у графічному інтерфейсі;
+- відображати DICOM-метадані пацієнта;
+- зберігати сегментовані зрізи у форматі PNG.
 
 ---
 
-## 🧠 Model Architecture
+## 🚀 Основні можливості
 
-The project uses the **U-Net** architecture, which consists of:
+✅ Сегментація медичних зображень за допомогою U-Net
+✅ Підтримка MHD/RAW та DICOM
+✅ Візуалізація масок сегментації
+✅ Збереження результатів у PNG
+✅ Графічний інтерфейс на PyQt6
+✅ Підтримка GPU через CUDA
+
+---
+
+## 🧠 Архітектура моделі
+
+У проєкті використовується архітектура **U-Net**, яка складається з:
 
 - Encoder (Downsampling)
 - Bottleneck
 - Decoder (Upsampling)
 - Skip Connections
 
-The following are used for training:
+Для навчання використовуються:
 
 - Dice Loss
 - Focal Loss
 
-Evaluation metrics:
+Метрики оцінювання:
 
 - Dice Score
 - IoU (Intersection over Union)
 
 ---
 
-# 🖥️ Requirements
+# 🖥️ Вимоги
 
-## Hardware
+## Апаратне забезпечення
 
-| Component | Minimum Requirements |
+| Компонент | Мінімальні вимоги |
 |---|---|
 | GPU | NVIDIA CUDA |
 | VRAM | 4 GB |
@@ -58,15 +58,15 @@ Evaluation metrics:
 
 ---
 
-### Software
+### Програмне забезпечення
 
 - Python 3.11+
-- CUDA Toolkit (optional)
+- CUDA Toolkit (опціонально)
 - pip
 
 ---
 
-## 📦 Key Libraries
+## 📦 Основні бібліотеки
 
 - torch
 - torchvision
@@ -75,7 +75,7 @@ Evaluation metrics:
 - matplotlib
 - pydicom
 - PyQt6
-## Installing Dependencies
+## Встановлення залежностей
 
 ```bash
 pip install -r requirements.txt
@@ -83,5 +83,3 @@ pip install -r requirements.txt
 
 <img width=48% height=48% alt="image" src="https://github.com/user-attachments/assets/7c9bd88e-6e4e-4be8-b88d-01ed19230288" />
  <img width=48% height=48% alt="image" src="https://github.com/user-attachments/assets/cf553e1c-89d1-43bc-a2ed-75098c5fd2a7" />
-
-
