@@ -1,4 +1,4 @@
-[English](README.md) | **Українська**
+**English** | [Українська](README.uk.md)
 # MRI Image Analysis System for Segmenting Knee Joint Structures
 ## 📖 Description
 
