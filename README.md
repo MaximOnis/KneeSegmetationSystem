@@ -1,56 +1,56 @@
-[English](README.md) | **Українська**
-# Система аналізу МРТ-знімків для виділення структур колінного суглобу
-## 📖 Опис
+**English** | [Українська](README.md)
+# MRI Image Analysis System for Segmenting Knee Joint Structures
+## 📖 Description
 
-Даний проєкт являє собою програмну систему для автоматичної сегментації анатомічних структур колінного суглоба на МРТ-знімках із використанням методів глибокого навчання.
+This project is a software system for the automatic segmentation of anatomical structures of the knee joint in MRI images using deep learning methods.
 
-Система дозволяє:
+The system allows you to:
 
-- завантажувати медичні файли форматів MHD/RAW та DICOM;
-- виконувати автоматичну сегментацію МРТ-знімків;
-- переглядати результати сегментації у графічному інтерфейсі;
-- відображати DICOM-метадані пацієнта;
-- зберігати сегментовані зрізи у форматі PNG.
-
----
-
-## 🚀 Основні можливості
-
-✅ Сегментація медичних зображень за допомогою U-Net  
-✅ Підтримка MHD/RAW та DICOM  
-✅ Візуалізація масок сегментації  
-✅ Збереження результатів у PNG  
-✅ Графічний інтерфейс на PyQt6  
-✅ Підтримка GPU через CUDA  
+- import medical files in MHD/RAW and DICOM formats;
+- perform automatic segmentation of MRI images;
+- view segmentation results in a graphical interface;
+- display the patient’s DICOM metadata;
+- save segmented slices in PNG format.
 
 ---
 
-## 🧠 Архітектура моделі
+## 🚀 Key Features
 
-У проєкті використовується архітектура **U-Net**, яка складається з:
+✅ Medical image segmentation using U-Net
+✅ Support for MHD/RAW and DICOM
+✅ Visualization of segmentation masks
+✅ Saving results as PNG
+✅ Graphical interface built with PyQt6
+✅ GPU support via CUDA
+
+---
+
+## 🧠 Model Architecture
+
+The project uses the **U-Net** architecture, which consists of:
 
 - Encoder (Downsampling)
 - Bottleneck
 - Decoder (Upsampling)
 - Skip Connections
 
-Для навчання використовуються:
+The following are used for training:
 
 - Dice Loss
 - Focal Loss
 
-Метрики оцінювання:
+Evaluation metrics:
 
 - Dice Score
 - IoU (Intersection over Union)
 
 ---
 
-# 🖥️ Вимоги
+# 🖥️ Requirements
 
-## Апаратне забезпечення
+## Hardware
 
-| Компонент | Мінімальні вимоги |
+| Component | Minimum Requirements |
 |---|---|
 | GPU | NVIDIA CUDA |
 | VRAM | 4 GB |
@@ -58,15 +58,15 @@
 
 ---
 
-### Програмне забезпечення
+### Software
 
 - Python 3.11+
-- CUDA Toolkit (опціонально)
+- CUDA Toolkit (optional)
 - pip
 
 ---
 
-## 📦 Основні бібліотеки
+## 📦 Key Libraries
 
 - torch
 - torchvision
@@ -75,7 +75,7 @@
 - matplotlib
 - pydicom
 - PyQt6
-## Встановлення залежностей
+## Installing Dependencies
 
 ```bash
 pip install -r requirements.txt
